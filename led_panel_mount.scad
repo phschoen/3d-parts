@@ -7,9 +7,13 @@ h_transformer=30+8;
 l=25;
 $e=0.1;
 
-//mount();
-//mount_2();
-mount_3();
+
+translate([-80,0,0])
+    mount();
+translate([  0,0,0])
+    mount_2();
+translate([+80,0,0])
+    mount_3();
 
 module mount()
 {
