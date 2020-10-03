@@ -9,9 +9,9 @@ $e=0.1;
 
 
 translate([-80,0,0])
-    mount();
+    %mount();
 translate([  0,0,0])
-    mount_2();
+   %mount_2();
 translate([+80,0,0])
     mount_3();
 
@@ -82,7 +82,7 @@ module mount_2()
     %cube(size=[l*2,l*2,h_transformer]);
 }
 
-module mount_3()
+module mount_3(holes)
 {
     l=l*0.7;
     translate([-l,0])
@@ -97,10 +97,16 @@ module mount_3()
 
         d=4;
 
-        translate([l/2,-w2/2,-$e])
-        cylinder_flange_sphere($fn=32, r1=d/2, r2=5, h=3.5);
-        translate([-l/2,-w2/2,-$e])
-        cylinder_flange_sphere($fn=32, r1=d/2, r2=5, h=3.5);
+        if(holes==2) {
+            translate([l/2,-w2/2,-$e])
+            cylinder_flange_sphere($fn=32, r1=d/2, r2=5, h=3.5);
+            translate([-l/2,-w2/2,-$e])
+            cylinder_flange_sphere($fn=32, r1=d/2, r2=5, h=3.5);
+        }else {
+            
+            translate([0,-w2/2,-$e])
+            cylinder_flange_sphere($fn=32, r1=d/2, r2=5, h=3.5);
+        }
     }
 
     translate([-l,w,h_transformer])
