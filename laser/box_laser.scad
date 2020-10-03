@@ -18,9 +18,9 @@ finger_d=20;
 
 with_grip = 1;
 with_grip_extra_rounding = 1;
-grip_h=boxsize[2]-30;
-grip_width=130;
 grip_d=30;
+grip_h=boxsize[2]+grip_d/2-25;
+grip_width=130-grip_d;
 
 //boxsize=[(480-10)/2, 450 , 150]; t=21; // sizes for ikea botom row
 
@@ -226,9 +226,9 @@ module front() {
                     translate([boxsize[2]/2-grip_h,-(grip_width)/2,-1])
                         cylinder(d=grip_d,h=wall*2);
                      
-                    translate([-boxsize[2]/2,(grip_width)/2,-1])
+                    translate([-boxsize[2]/2-grip_d,(grip_width)/2,-1])
                         cylinder(d=grip_d,h=wall*2);            
-                    translate([-boxsize[2]/2,-(grip_width)/2,-1])
+                    translate([-boxsize[2]/2-grip_d,-(grip_width)/2,-1])
                         cylinder(d=grip_d,h=wall*2);
                 }
                      
